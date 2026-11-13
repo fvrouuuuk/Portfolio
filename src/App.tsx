@@ -257,7 +257,7 @@ function Navbar({ language, setLanguage, activeSection, menuOpen, setMenuOpen }:
     { id: 'journey', label: t.nav.journey },
     { id: 'contact', label: t.nav.contact },
   ]
-  const cv = language === 'fr' ? '/farouk-ayouna-cv-fr.pdf' : '/farouk-ayouna-cv-en.pdf'
+  const cv = `${import.meta.env.BASE_URL}${language === 'fr' ? 'farouk-ayouna-cv-fr.pdf' : 'farouk-ayouna-cv-en.pdf'}`
   return (
     <header className="site-header">
       <a className="brand-mark" href="#home" aria-label="Farouk Ayouna, accueil" data-magnetic>
@@ -569,7 +569,7 @@ function App() {
                 </div>
                 <p className="contact-aside__label phone-label">{t.contact.phone}</p>
                 <a className="phone-link" href={`tel:${contact.phone.replaceAll(' ', '')}`}>{contact.phone}</a>
-                <a className="button button--glass contact-cv" href={language === 'fr' ? '/farouk-ayouna-cv-fr.pdf' : '/farouk-ayouna-cv-en.pdf'} download data-magnetic><Download size={15} />{t.nav.cv}</a>
+                <a className="button button--glass contact-cv" href={`${import.meta.env.BASE_URL}${language === 'fr' ? 'farouk-ayouna-cv-fr.pdf' : 'farouk-ayouna-cv-en.pdf'}`} download data-magnetic><Download size={15} />{t.nav.cv}</a>
               </div>
               <span className="contact-watermark" aria-hidden="true">FA</span>
             </div>
